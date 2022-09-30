@@ -1,3 +1,5 @@
+import {Collection} from './collection';
+
 export interface IStack<T> {
     push(item: T): void;
 
@@ -8,24 +10,18 @@ export interface IStack<T> {
     size(): number;
 }
 
-export class Stack<T> implements IStack<T> {
-    /**
-     * Storage of T items.
-     *
-     * @private
-     */
-    private storage: T[] = [];
-
+export class Stack<T> extends Collection<T> implements IStack<T> {
     /**
      * Constructor.
      *
      * @param capacity - stack capacity
      */
     constructor(private capacity: number = Infinity) {
+        super();
     }
 
     /**
-     * Push new item into stack.
+     * Inserts an object at the top of the stack.
      *
      * @param item
      */
@@ -37,7 +33,7 @@ export class Stack<T> implements IStack<T> {
     }
 
     /**
-     * Pop item from stack.
+     * Removes and returns the object at the top of the stack.
      *
      * @returns T item or undefined
      */
@@ -46,7 +42,7 @@ export class Stack<T> implements IStack<T> {
     }
 
     /**
-     * Get last item from stack.
+     * Returns the object at the top of the stack without removing it.
      *
      * @returns Last item
      */
@@ -55,11 +51,11 @@ export class Stack<T> implements IStack<T> {
     }
 
     /**
-     * Size of stack.
+     * Returns true if storage is full.
      *
-     * @returns Stack size
+     * @returns True if collection is full
      */
-    size(): number {
-        return this.storage.length;
+    isFull(): boolean {
+        return this.capacity === this.size();
     }
 }

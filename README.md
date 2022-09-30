@@ -19,6 +19,25 @@ These instructions will get you setup to use `data-structs` in your project.
 |-----------------:|--------------------------------------------|-----------------------------------------------|
 | **Installation** | `npm i -D @swiftx/data-structs typescript` | `yarn add -D @swiftx/data-structs typescript` |
 
+## Usage
+
+```typescript
+import {Stack} from './stack';
+
+const stack = new Stack<string>(4);
+stack.push('one');
+stack.push('two');
+stack.push('three');
+stack.push('four');
+stack.push('five'); // Throws error, capacity is 4
+
+stack.size(); // Output: 4
+stack.peek(); // Output: "four"
+stack.size(); // Output: 4
+stack.pop();  // Output: "four"
+stack.size(); // Output: 3
+```
+
 ## Authors/maintainers
 
 - **Klyuchevskiy Valeriy** - [vklyuche](https://github.com/vklyuche)

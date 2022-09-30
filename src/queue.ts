@@ -1,3 +1,5 @@
+import {Collection} from './collection';
+
 export interface IQueue<T> {
     enqueue(item: T): void;
 
@@ -6,20 +8,14 @@ export interface IQueue<T> {
     size(): number;
 }
 
-export class Queue<T> implements IQueue<T> {
-    /**
-     * Storage of T items.
-     *
-     * @private
-     */
-    private storage: T[] = [];
-
+export class Queue<T> extends Collection<T> implements IQueue<T> {
     /**
      * Constructor.
      *
-     * @param capacity
+     * @param capacity Queue capacity
      */
     constructor(private capacity: number = Infinity) {
+        super();
     }
 
     /**
@@ -45,11 +41,11 @@ export class Queue<T> implements IQueue<T> {
     }
 
     /**
-     * Size of queue, items count.
+     * Returns true if storage is full.
      *
-     * @returns Items count in queue
+     * @returns True if collection is full
      */
-    size(): number {
-        return this.storage.length;
+    isFull(): boolean {
+        return this.capacity === this.size();
     }
 }
