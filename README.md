@@ -1,4 +1,5 @@
-# Nuxt UTM Adder
+# Data structures
+![ts](https://badgen.net/badge/-/TypeScript?icon=typescript&label&labelColor=blue&color=555555)
 ![Size](https://img.shields.io/bundlephobia/minzip/@swiftx/data-structs)
 ![Version](https://img.shields.io/npm/v/@swiftx/data-structs)
 ![Downloads](https://img.shields.io/npm/dt/@swiftx/data-structs)
